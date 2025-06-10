@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/patient-card.css">
+    <link rel="stylesheet" href="css/vital-grid-cards.css">
+    <link rel="stylesheet" href="css/vital-graph.css">
+    <link rel="stylesheet" href="css/sidebar-recommendations.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+        <nav class="sidebar">
+            <div class="sidebar-top">
+                <i class="material-symbols-outlined">menu</i>
+            </div>
+            <div class="sidebar-bottom">
+                <i class="material-symbols-outlined ph-heartbeat">cardiology</i>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-text">
+                    <h1>Welcome, Lei Andrei Banlor!</h1>
+                    <p>Your personal patient dashboard overview</p>
+                </div>
+                <button class="logout-btn">
+                    <span>Log out</span>
+                    <i class="material-symbols-outlined">logout</i>
+                </button>
+            </header>
+
+            <div class="content-grid">
+                <section class="patient-card">
+                    <div class="patient-card-header">
+                        <h2>Patient</h2>
+                        <i class="material-symbols-outlined">refresh</i>
+                    </div>
+                    <div class="patient-info">
+                        <img src="https://placehold.co/150x150/6C757D/FFFFFF?text=J" alt="Patient Avatar"
+                            class="patient-avatar">
+                        <h3>Jeter Kenzi T. Corpus</h3>
+                        <p>Age Category: Senior</p>
+                    </div>
+                    <div class="patient-status">
+                        <i class="material-symbols-outlined">info</i>
+                        <span>Status: Good</span>
+                    </div>
+                </section>
+
+                <section class="vitals-grid">
+                    <div class="vital-card">
+                        <div class="vital-icon heart-rate">
+                            <i class="material-symbols-outlined">cardiology</i>
+                        </div>
+                        <div class="vital-details">
+                            <h4>Heart Rate</h4>
+                            <p>Status: Normal</p>
+                        </div>
+                        <div class="vital-reading">
+                            <span class="value">100</span>
+                            <span class="unit">bpm</span>
+                        </div>
+                    </div>
+                    <div class="vital-card">
+                        <div class="vital-icon oxygen-level">
+                            <i class="material-symbols-outlined">spo2</i>
+                        </div>
+                        <div class="vital-details">
+                            <h4>Oxygen Level</h4>
+                            <p>Status: Normal</p>
+                        </div>
+                        <div class="vital-reading">
+                            <span class="value">100</span>
+                            <span class="unit">percent</span>
+                        </div>
+                    </div>
+                    <div class="vital-card">
+                        <div class="vital-icon body-temp">
+                            <i class="material-symbols-outlined">device_thermostat</i>
+                        </div>
+                        <div class="vital-details">
+                            <h4>Body Temperature</h4>
+                            <p>Status: Normal</p>
+                        </div>
+                        <div class="vital-reading">
+                            <span class="value">100</span>
+                            <span class="unit">Celsius</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="vitals-graph-section">
+                    <div class="graph-header">
+                        <div class="graph-title">
+                            <h2>Vitals</h2>
+                            <p>Summary of patient vitals</p>
+                        </div>
+                        <div class="graph-range">
+                            <span>Range: Monthly</span>
+                            <i class="material-symbols-outlined">arrow_drop_down</i>
+                        </div>
+                    </div>
+                    <div class="graph-container">
+                        <div class="y-axis-labels">
+                            <span>Jun</span>
+                            <span class="active">Jul</span>
+                            <span>Aug</span>
+                            <span>Sep</span>
+                        </div>
+                        <div class="chart-wrapper">
+                            <canvas id="vitalsChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="graph-footer">
+                        <div class="legend">
+                            <span class="legend-item heart-rate-legend"><span class="dot"></span>Heart Rate</span>
+                            <span class="legend-item oxygen-level-legend"><span class="dot"></span>Oxygen Level</span>
+                            <span class="legend-item body-temp-legend"><span class="dot"></span>Body Temperature</span>
+                        </div>
+                        <div class="last-updated">
+                            Last Updated: 06/09, 1:45pm
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <aside class="recommendations">
+            <div class="recommendations-header">
+                <h2>Recommendations</h2>
+                <i class="material-symbols-outlined">chat_bubble</i>
+            </div>
+            <div class="ai-badge">
+                <i class="material-symbols-outlined">auto_awesome</i>
+                <span>AI Powered using Google Gemini 2.0</span>
+            </div>
+
+            <div class="recommendation-card">
+                <h3>Overview</h3>
+                <p>Worded summary of the collected data.</p>
+                <p class="details">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur erat purus, posuere quis
+                    imperdiet ut, fringilla non orci. Duis pellentesque, felis et congue congue, tortor nisi ultricies
+                    justo, quis ultrices risus orci vitae libero.
+                </p>
+            </div>
+
+            <div class="recommendation-card">
+                <h3>Potential Health Risks</h3>
+                <p>List of possible health implications based on collected data.</p>
+                <ul class="risk-list">
+                    <li>
+                        <i class="material-symbols-outlined error">error</i>
+                        <div>
+                            <h4>May saltik ka sa utak</h4>
+                            <p>Due to lack of... blah blah reasons, keep it short and simple</p>
+                        </div>
+                    </li>
+                    <li>
+                        <i class="material-symbols-outlined error">error</i>
+                        <div>
+                            <h4>May saltik ka sa utak</h4>
+                            <p>Due to lack of... blah blah reasons, keep it short and simple</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="recommendation-card">
+                <h3>Precautionary Measures</h3>
+                <p>List of possible health implications based on collected data.</p>
+                <ul class="precaution-list">
+                    <li>
+                        <i class="material-symbols-outlined">spa</i>
+                        <div>
+                            <h4>wag ka puro cellphone sabi ni mama</h4>
+                            <p>lmao lmao puro kasi kayo ngodem't ml</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
