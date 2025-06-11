@@ -1,0 +1,297 @@
+/* --- CSS Reset & Global Styles --- */
+:root {
+    --bg-dark: #1E1B32;
+    --bg-medium: #27233A;
+    --bg-light: #35324B;
+    --text-primary: #FFFFFF;
+    --text-secondary: #A5A5A5;
+    --accent-pink: #C8435D;
+    --font-family: 'Quicksand', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-medium); /* UPDATED */
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.logout-btn {
+    background: transparent;
+    color: var(--accent-pink);
+    border: 1px solid var(--accent-pink);
+    border-radius: 20px;
+    padding: 0.75rem 1.5rem;
+    font-family: var(--font-family);
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.logout-btn:hover {
+    background-color: var(--accent-pink);
+    color: var(--text-primary);
+}
+
+.logout-btn:focus {
+    outline: none;
+}
+
+.search-page-container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- Header --- */
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    width: 100%;
+    max-width: 600px; /* Limit width of header */
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--accent-pink);
+    margin-bottom: 1.5rem; /* Increased margin */
+    position: relative;
+    padding-bottom: 1.5rem; /* Space for the line */
+}
+
+/* Line under the logo */
+.logo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 2px;
+    background-color: var(--bg-light);
+}
+
+.logo .material-symbols-outlined {
+    font-size: 3.5rem; /* Larger icon */
+    font-variation-settings: 'wght' 100; /* 100 (thin) to 700 (bold) */
+}
+
+.tagline {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    width: 450px;
+    margin: 0 auto;
+}
+
+/* --- Toolbar --- */
+.toolbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.search-bar {
+    position: relative;
+    width: 350px;
+}
+
+.search-bar input {
+    width: 100%;
+    background-color: var(--bg-dark);
+    border: none;
+    border-radius: 25px;
+    padding: 0.85rem 3rem 0.85rem 1.5rem;
+    font-family: var(--font-family);
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.search-bar input:focus {
+    outline: none;
+    box-shadow: 0 0 5px var(--accent-pink);
+}
+
+.search-bar input::placeholder {
+    color: var(--text-secondary);
+}
+
+.search-bar .material-symbols-outlined {
+    position: absolute;
+    right: 1.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    font-size: 1.8rem;
+}
+
+.sort-control {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--text-secondary);
+}
+
+.dropdown {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--bg-dark);
+    padding: 0.85rem 2.5rem;
+    border-radius: 15px;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.dropdown .material-symbols-outlined {
+    color: var(--accent-pink);
+}
+
+#sortBy:focus {
+    outline: none;
+}
+
+/* --- Patient Grid --- */
+.patient-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+.patient-card-item {
+    background-color: var(--bg-dark); /* UPDATED */
+    border-radius: 15px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    position: relative; /* ADDED */
+}
+
+.patient-card-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--bg-light);
+}
+
+.patient-details {
+    flex-grow: 1;
+}
+
+.patient-details h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.patient-details p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.status-icon,
+.menu-icon {
+    font-size: 1.8rem;
+    cursor: pointer;
+    position: absolute; /* ADDED */
+    top: 1.5rem;      /* ADDED */
+    right: 1.5rem;    /* ADDED */
+}
+
+.status-icon.error {
+    color: var(--accent-pink);
+}
+
+.menu-icon {
+    color: var(--accent-pink);
+}
+
+/* --- Pagination --- */
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Increased gap */
+    color: var(--text-secondary);
+}
+
+.pagination .material-symbols-outlined {
+    cursor: pointer;
+    font-size: 2rem;
+    color: var(--accent-pink);
+}
+
+.pagination .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--bg-light);
+    cursor: pointer;
+}
+
+.page-number-box {
+    width: 40px;
+    height: 40px;
+    background-color: var(--bg-light);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-number {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 1.2rem;
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) {
+    .patient-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+    }
+    .search-bar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .patient-grid {
+        grid-template-columns: 1fr;
+    }
+}
